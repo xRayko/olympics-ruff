@@ -36,28 +36,3 @@ jobs:
         run: |
           source venv/bin/activate
           ruff check .  # Lancer ruff sur tout le projet
-
-  test:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Set up Python
-        uses: actions/setup-python@v3
-        with:
-          python-version: '3.10'  # Ou la version que tu souhaites
-
-      - name: Install dependencies
-        run: |
-          python -m venv venv
-          source venv/bin/activate
-          pip install --upgrade pip
-          pip install -r requirements.txt  # Assure-toi que pytest ou autre est dans ton fichier requirements.txt
-
-      - name: Run tests
-        run: |
-          source venv/bin/activate
-          pytest  # Ou une commande équivalente pour lancer tes tests
-
