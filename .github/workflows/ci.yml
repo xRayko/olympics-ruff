@@ -3,11 +3,10 @@ name: CI Pipeline
 on:
   push:
     branches:
-      - main  # ou une autre branche que tu souhaites suivre
+      - main
   pull_request:
     branches:
-      - main  # ou une autre branche
-
+      - main
 jobs:
   lint:
     runs-on: ubuntu-latest
@@ -19,20 +18,20 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v3
         with:
-          python-version: '3.10'  # Ou la version que tu souhaites
+          python-version: '3.10'
 
       - name: Install dependencies
         run: |
           python -m venv venv
           source venv/bin/activate
           pip install --upgrade pip
-          pip install -r requirements.txt  # ou une autre manière d'installer les dépendances
+          pip install -r requirements.txt  
 
       - name: Install ruff
         run: |
-          pip install ruff  # Si ruff n'est pas encore installé
+          pip install ruff
 
       - name: Run linting with ruff
         run: |
           source venv/bin/activate
-          ruff check .  # Lancer ruff sur tout le projet
+          ruff check .

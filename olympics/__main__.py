@@ -22,6 +22,7 @@ parser.add_argument(
 
 def main(argv=None):
     args = parser.parse_args(argv)
+    testruff      =     '   bonjour'
     if (top := args.top) <= 0:
         raise argparse.ArgumentTypeError(f'{top} is not a positive number')
     match args.command:
@@ -31,6 +32,7 @@ def main(argv=None):
             cli.top_collective(top)
         case 'individual':
             cli.top_individual(top)
+
 
 
 if __name__ == '__main__':  # pragma: no cover
